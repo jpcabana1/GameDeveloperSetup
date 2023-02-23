@@ -47,6 +47,7 @@ namespace App.Forms
                 var data = FormHandler.GetRepositoryData(Visible); 
                 var parameters = ScriptHandler.GetProjectParameters(Environment.CurrentDirectory, data.Url!, data.Name!, TxtPath.Text.Trim());
                 ScriptHandler.ExecutePowerShellScript(ScriptUtil.ProjectScriptPath, parameters);
+
             }else if (RbCharacter.Checked)
             {
                 var parameters = ScriptHandler.GetCharacterParameters(FormHandler.GetName(Visible), TxtPath.Text.Trim());
