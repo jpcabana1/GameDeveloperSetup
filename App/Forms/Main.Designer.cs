@@ -38,7 +38,7 @@
             GbCreate = new GroupBox();
             ChkLaunchEngine = new CheckBox();
             BtnChooseEnginePath = new Button();
-            TxtScriptPath = new TextBox();
+            TxtEnginePath = new TextBox();
             TxtPath = new TextBox();
             BtnFolder = new Button();
             BtnCreate = new Button();
@@ -143,7 +143,7 @@
             // 
             GbCreate.Controls.Add(ChkLaunchEngine);
             GbCreate.Controls.Add(BtnChooseEnginePath);
-            GbCreate.Controls.Add(TxtScriptPath);
+            GbCreate.Controls.Add(TxtEnginePath);
             GbCreate.Controls.Add(TxtPath);
             GbCreate.Controls.Add(BtnFolder);
             GbCreate.Controls.Add(BtnCreate);
@@ -177,16 +177,18 @@
             BtnChooseEnginePath.TabIndex = 4;
             BtnChooseEnginePath.Text = "Choose";
             BtnChooseEnginePath.UseVisualStyleBackColor = false;
+            BtnChooseEnginePath.Click += BtnChooseEnginePath_Click;
             // 
-            // TxtScriptPath
+            // TxtEnginePath
             // 
-            TxtScriptPath.BorderStyle = BorderStyle.FixedSingle;
-            TxtScriptPath.Enabled = false;
-            TxtScriptPath.Location = new Point(111, 55);
-            TxtScriptPath.Multiline = true;
-            TxtScriptPath.Name = "TxtScriptPath";
-            TxtScriptPath.Size = new Size(379, 25);
-            TxtScriptPath.TabIndex = 3;
+            TxtEnginePath.BorderStyle = BorderStyle.FixedSingle;
+            TxtEnginePath.Enabled = false;
+            TxtEnginePath.Location = new Point(111, 55);
+            TxtEnginePath.Multiline = true;
+            TxtEnginePath.Name = "TxtEnginePath";
+            TxtEnginePath.Size = new Size(379, 25);
+            TxtEnginePath.TabIndex = 3;
+            TxtEnginePath.Text = "C:\\Program Files\\Epic Games\\UE_5.1\\Engine\\Binaries\\Win64";
             // 
             // TxtPath
             // 
@@ -262,6 +264,6 @@
         private Button BtnCreate;
         private CheckBox ChkLaunchEngine;
         private Button BtnChooseEnginePath;
-        private TextBox TxtScriptPath;
+        private TextBox TxtEnginePath;
     }
 }

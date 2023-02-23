@@ -4,6 +4,9 @@ namespace App.Code.Handlers
 {
     public static class ScriptHandler
     {
+        public static Dictionary<string, string> GetExecutableParameters(string path, string exe)
+            => new() {{ "Path", path }, { "Exe", exe } };
+
         public static Dictionary<string, string> GetProjectParameters(string scriptsPath, string repositoryUrl, string repositoryName, string path)
         => new()
         {

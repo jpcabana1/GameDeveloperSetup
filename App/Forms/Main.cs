@@ -44,11 +44,15 @@ namespace App.Forms
 
             if (RbProject.Checked)
             {
-                var data = FormHandler.GetRepositoryData(Visible); 
+                var data = FormHandler.GetRepositoryData(Visible);
                 var parameters = ScriptHandler.GetProjectParameters(Environment.CurrentDirectory, data.Url!, data.Name!, TxtPath.Text.Trim());
                 ScriptHandler.ExecutePowerShellScript(ScriptUtil.ProjectScriptPath, parameters);
-
-            }else if (RbCharacter.Checked)
+                if (ChkLaunchEngine.Enabled && ChkLaunchEngine.Checked)
+                {
+                    ScriptHandler.ExecutePowerShellScript(ScriptUtil.OpenExePath, ScriptHandler.GetExecutableParameters(TxtEnginePath.Text, ScriptUtil.UnrealExe));
+                }
+            }
+            else if (RbCharacter.Checked)
             {
                 var parameters = ScriptHandler.GetCharacterParameters(FormHandler.GetName(Visible), TxtPath.Text.Trim());
                 ScriptHandler.ExecutePowerShellScript(ScriptUtil.CharacterScriptPath, parameters);
@@ -60,6 +64,13 @@ namespace App.Forms
             }
 
             MessageBox.Show(MessageUtil.CreatedMessage, MessageUtil.MessageLabel);
+        }
+
+        private void BtnChooseEnginePath_Click(object sender, EventArgs e)
+        {
+            FbdLocation.ShowDialog();
+            TxtEnginePath.Text = FbdLocation.SelectedPath;
+            ChkLaunchEngine.Enabled = TxtEnginePath.Text.Trim() != string.Empty;
         }
     }
 
