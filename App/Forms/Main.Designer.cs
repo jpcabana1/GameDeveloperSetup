@@ -36,7 +36,10 @@
             GbImage = new GroupBox();
             PbTemplate = new PictureBox();
             GbCreate = new GroupBox();
-            textBox1 = new TextBox();
+            ChkLaunchEngine = new CheckBox();
+            BtnChooseEnginePath = new Button();
+            TxtScriptPath = new TextBox();
+            TxtPath = new TextBox();
             BtnFolder = new Button();
             BtnCreate = new Button();
             GbOptions.SuspendLayout();
@@ -127,17 +130,21 @@
             // 
             // PbTemplate
             // 
+            PbTemplate.Dock = DockStyle.Fill;
             PbTemplate.InitialImage = null;
-            PbTemplate.Location = new Point(13, 28);
+            PbTemplate.Location = new Point(3, 19);
             PbTemplate.Name = "PbTemplate";
-            PbTemplate.Size = new Size(800, 480);
+            PbTemplate.Size = new Size(836, 498);
             PbTemplate.SizeMode = PictureBoxSizeMode.StretchImage;
             PbTemplate.TabIndex = 1;
             PbTemplate.TabStop = false;
             // 
             // GbCreate
             // 
-            GbCreate.Controls.Add(textBox1);
+            GbCreate.Controls.Add(ChkLaunchEngine);
+            GbCreate.Controls.Add(BtnChooseEnginePath);
+            GbCreate.Controls.Add(TxtScriptPath);
+            GbCreate.Controls.Add(TxtPath);
             GbCreate.Controls.Add(BtnFolder);
             GbCreate.Controls.Add(BtnCreate);
             GbCreate.Dock = DockStyle.Bottom;
@@ -149,46 +156,80 @@
             GbCreate.TabStop = false;
             GbCreate.Text = "Action";
             // 
-            // textBox1
+            // ChkLaunchEngine
             // 
-            textBox1.BorderStyle = BorderStyle.FixedSingle;
-            textBox1.Enabled = false;
-            textBox1.Location = new Point(26, 79);
-            textBox1.Multiline = true;
-            textBox1.Name = "textBox1";
-            textBox1.Size = new Size(379, 51);
-            textBox1.TabIndex = 2;
+            ChkLaunchEngine.AutoSize = true;
+            ChkLaunchEngine.Location = new Point(586, 60);
+            ChkLaunchEngine.Name = "ChkLaunchEngine";
+            ChkLaunchEngine.Size = new Size(104, 19);
+            ChkLaunchEngine.TabIndex = 5;
+            ChkLaunchEngine.Text = "Launch Engine";
+            ChkLaunchEngine.UseVisualStyleBackColor = true;
+            // 
+            // BtnChooseEnginePath
+            // 
+            BtnChooseEnginePath.BackColor = Color.White;
+            BtnChooseEnginePath.Font = new Font("Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
+            BtnChooseEnginePath.ForeColor = Color.DarkRed;
+            BtnChooseEnginePath.Location = new Point(495, 55);
+            BtnChooseEnginePath.Name = "BtnChooseEnginePath";
+            BtnChooseEnginePath.Size = new Size(87, 25);
+            BtnChooseEnginePath.TabIndex = 4;
+            BtnChooseEnginePath.Text = "Choose";
+            BtnChooseEnginePath.UseVisualStyleBackColor = false;
+            // 
+            // TxtScriptPath
+            // 
+            TxtScriptPath.BorderStyle = BorderStyle.FixedSingle;
+            TxtScriptPath.Enabled = false;
+            TxtScriptPath.Location = new Point(111, 55);
+            TxtScriptPath.Multiline = true;
+            TxtScriptPath.Name = "TxtScriptPath";
+            TxtScriptPath.Size = new Size(379, 25);
+            TxtScriptPath.TabIndex = 3;
+            // 
+            // TxtPath
+            // 
+            TxtPath.BorderStyle = BorderStyle.FixedSingle;
+            TxtPath.Enabled = false;
+            TxtPath.Location = new Point(111, 85);
+            TxtPath.Multiline = true;
+            TxtPath.Name = "TxtPath";
+            TxtPath.Size = new Size(379, 45);
+            TxtPath.TabIndex = 2;
             // 
             // BtnFolder
             // 
             BtnFolder.BackColor = Color.White;
             BtnFolder.Font = new Font("Segoe UI", 15.75F, FontStyle.Bold, GraphicsUnit.Point);
-            BtnFolder.ForeColor = Color.Firebrick;
-            BtnFolder.Location = new Point(411, 79);
+            BtnFolder.ForeColor = Color.DarkRed;
+            BtnFolder.Location = new Point(496, 85);
             BtnFolder.Name = "BtnFolder";
-            BtnFolder.Size = new Size(174, 51);
+            BtnFolder.Size = new Size(174, 45);
             BtnFolder.TabIndex = 1;
             BtnFolder.Text = "Folder";
             BtnFolder.UseVisualStyleBackColor = false;
+            BtnFolder.Click += BtnFolder_Click;
             // 
             // BtnCreate
             // 
             BtnCreate.BackColor = Color.White;
             BtnCreate.Font = new Font("Segoe UI", 15.75F, FontStyle.Bold, GraphicsUnit.Point);
-            BtnCreate.ForeColor = Color.Red;
-            BtnCreate.Location = new Point(26, 149);
+            BtnCreate.ForeColor = Color.DarkRed;
+            BtnCreate.Location = new Point(111, 136);
             BtnCreate.Name = "BtnCreate";
             BtnCreate.Size = new Size(558, 51);
             BtnCreate.TabIndex = 0;
             BtnCreate.Text = "Create";
             BtnCreate.UseVisualStyleBackColor = false;
+            BtnCreate.Click += BtnCreate_Click;
             // 
             // Main
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             AutoSize = true;
-            BackColor = Color.WhiteSmoke;
+            BackColor = Color.Silver;
             ClientSize = new Size(1008, 729);
             Controls.Add(GbImage);
             Controls.Add(GbOptions);
@@ -216,8 +257,11 @@
         private RadioButton RbCharacter;
         private PictureBox PbTemplate;
         private GroupBox GbCreate;
-        private Button BtnCreate;
-        private TextBox textBox1;
+        private TextBox TxtPath;
         private Button BtnFolder;
+        private Button BtnCreate;
+        private CheckBox ChkLaunchEngine;
+        private Button BtnChooseEnginePath;
+        private TextBox TxtScriptPath;
     }
 }

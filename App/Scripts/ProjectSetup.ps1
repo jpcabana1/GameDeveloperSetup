@@ -1,10 +1,11 @@
 param(
-    #[string] $EngineEditorPath, 
-    [string] $GameDevPath, 
+    [string] $ScriptsPath,
     [string] $RepositoryUrl, 
-    [string] $RepositoryName
+    [string] $RepositoryName,
+    [string] $Path
 )
 
+Set-Location $Path
 git clone $RepositoryUrl
 Set-Location $RepositoryName
 
@@ -18,12 +19,7 @@ mkdir GDD
 mkdir References
 Set-Location .. 
 
-Copy-Item "${GameDevPath}\Assets\AssetSetup.ps1" -Destination ".\Assets"
-Copy-Item "${GameDevPath}\CharacterPipeline\CharacterPipelineV2.ps1" -Destination ".\Characters"
-Copy-Item "${GameDevPath}\Games\.gitignore" -Destination ".\Project"
-Copy-Item "${GameDevPath}\Games\.gitattributes" -Destination "."
-
-
-#Invoke-Expression -Command "${EngineEditorPath}\UnrealEditor.exe"
+Copy-Item "${ScriptsPath}\Resources\.gitignore" -Destination ".\Project"
+Copy-Item "${ScriptsPath}\Resources\.gitattributes" -Destination "."
 
 Set-Location ..
