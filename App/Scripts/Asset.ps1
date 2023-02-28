@@ -12,3 +12,5 @@ mkdir SubstancePainter
 Set-Location SubstancePainter
 mkdir Import
 Set-Location ..
+
+Invoke-Item $Path

@@ -23,3 +23,5 @@ Copy-Item "${ScriptsPath}\Resources\.gitignore" -Destination ".\Project"
 Copy-Item "${ScriptsPath}\Resources\.gitattributes" -Destination "."
 
 Set-Location ..
+
+Invoke-Item $Path

@@ -29,3 +29,5 @@ mkdir Unreal
 Set-Location Unreal
 mkdir Import
 Set-Location ..
+
+Invoke-Item $Path
