@@ -5,12 +5,8 @@ Set-Location $Path
 mkdir $AssetName
 Set-Location $AssetName
 
-mkdir ExportRelease
+mkdir Release
 mkdir Reference
 mkdir SubstancePainter
-
-Set-Location SubstancePainter
-mkdir Import
-Set-Location ..
 
 Invoke-Item $Path
